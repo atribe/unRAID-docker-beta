@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Containers>
+<Beta>True</Beta>
+<Category>Tools:</Category>
+  <Name>telegraf</Name>
+  <Description>
+	  Telegraf gathers metrics from your system and sends them to an InfluxDB server for storage. From InfluxDB you would typically use something like Grafana to plot the data.[br][br]
+    [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]
+    [b]/var/run/docker.sock[/b] Location of your docker socket.[br]
+    [br]
+    [b]docker run -t -v /var/run/docker.sock:/var/run/docker.sock:ro -v /proc:/rootfs/proc:ro -v /etc:/rootfs/etc:ro -v /sys:/rootfs/sys:ro -v /:/rootfs:ro -v /mnt/user/appdata/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf -e HOST_MOUNT_PREFIX=/rootfs -e HOST_ETC=/rootfs/etc -e HOST_PROC=/rootfs/proc -e HOST_SYS=/rootfs/sys --net="bridge" --name="telegraf" --privileged=true telegraf[/b]
+  </Description>
+  <Overview>
+	   Telegraf sends metrics to InfluxDB. Telegraf can collect metrics about the host (in this case unRAID) and about other docker containers.
+  </Overview>
+  <Project>https://influxdata.com/time-series-platform/telegraf/</Project>
+  <Support>https://lime-technology.com/forum/index.php?topic=51498.0</Support>
+  <Registry>https://hub.docker.com/_/telegraf/</Registry>
+  <GitHub>https://github.com/influxdata/telegraf</GitHub>
+  <Repository>telegraf</Repository>
+  <BindTime>true</BindTime>
+  <Privileged>true</Privileged>
+  <Networking>
+    <Mode>bridge</Mode>
+  </Networking>
+  <Environment>
+    <Variable>
+      <Name>HOST_PROC</Name>
+      <Value>/rootfs/proc</Value>
+    </Variable>
+    <Variable>
+      <Name>HOST_SYS</Name>
+      <Value>/rootfs/sys</Value>
+    </Variable>
+    <Variable>
+      <Name>HOST_ETC</Name>
+      <Value>/rootfs/etc</Value>
+    </Variable>
+    <Variable>
+      <Name>HOST_MOUNT_PREFIX</Name>
+      <Value>/rootfs</Value>
+    </Variable>
+  </Environment>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/telegraf/telegraf.conf</HostDir>
+      <ContainerDir>/etc/telegraf/telegraf.conf</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/proc</HostDir>
+      <ContainerDir>/rootfs/proc</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/etc</HostDir>
+      <ContainerDir>/rootfs/etc</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/sys</HostDir>
+      <ContainerDir>/rootfs/sys</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/</HostDir>
+      <ContainerDir>/rootfs</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/var/run/docker.sock</HostDir>
+      <ContainerDir>/var/run/docker.sock</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+  </Data>
+  <Banner></Banner>
+  <Icon>telegraf.png</Icon>
+  <ExtraParams></ExtraParams>
+</Containers>
