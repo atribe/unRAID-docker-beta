@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Containers>
+  <Beta>True</Beta>
+  <Category>Network:Management Tools:</Category>
+  <Date>2016-09-02</Date>
+  <Name>telegraf</Name>
+  <Description>
+    InfluxDB is an open source time series database with no external dependencies. It's useful for recording metrics, events, and performing analytics.[br]
+    [br]
+    [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]
+    [b]Container Volumes:[/b][br]
+    [b]/var/lib/influxdb[/b] Persistent data storage location[br]
+    [b]Container Ports:[/b][br]
+    [b]8083[/b] Web admin interface[br]
+    [b]8086[/b] HTTP API port[br]
+  </Description>
+  <Overview>
+    InfluxDB is an open source time series database with no external dependencies. It's useful for recording metrics, events, and performing analytics.
+  </Overview>
+  <Project>https://influxdata.com/</Project>
+  <Support>https://lime-technology.com/forum/index.php?topic=51498.0</Support>
+  <Registry>https://hub.docker.com/_/influxdb/</Registry>
+  <GitHub>https://github.com/influxdata/influxdb</GitHub>
+  <Repository>telegraf</Repository>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Networking>
+    <Mode>bridge</Mode>
+  </Networking>
+  <Environment>
+  </Environment>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/influxdb</HostDir>
+      <ContainerDir>/var/lib/influxdb</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Banner></Banner>
+  <Icon>https://avatars2.githubusercontent.com/u/5713248?v=3&s=200</Icon>
+  <ExtraParams></ExtraParams>
+</Containers>
