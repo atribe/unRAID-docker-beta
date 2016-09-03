@@ -13,6 +13,15 @@
     [br]
     [b]Container Ports:[/b][br]
     [b]3000[/b] Web admin interface[br]
+    [br]
+    [b]Environment Variables:[/b][br]
+    [b]GF_SERVER_ROOT_URL[/b] The url to which you will be navigating to get to the grafana dashboard. Typically your ip or hostname[br]
+    [b]GF_SECURITY_ADMIN_PASSWORD[/b] Your password to use with the admin user. The default is user admin with password admin.[br]
+    [br]
+    [b][u][span style='color: #E80000;']CLICK ADVANCED VIEW AND SET THE ENVIRONMENT VARIABLES[/span][/u][/b][br]
+    [br]
+    After the docker container is running check out the datasource documentation at http://docs.grafana.org/datasources/overview/ and then the getting started guide at http://docs.grafana.org/guides/gettingstarted/[br]
+    A convient datasource would be Influxdb, which can also be found in the community apps.
   </Description>
   <Overview>
     Grafana is an open source, feature rich metrics dashboard and graph editor for Graphite, Elasticsearch, OpenTSDB, Prometheus and InfluxDB.
@@ -41,7 +50,7 @@
     </Variable>
     <Variable>
       <Name>GF_SECURITY_ADMIN_PASSWORD</Name>
-      <Value>grafana</Value>
+      <Value>admin</Value>
     </Variable>
   </Environment>
   <Data>
