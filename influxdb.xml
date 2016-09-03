@@ -37,6 +37,6 @@
     </Volume>
   </Data>
   <Banner></Banner>
-  <Icon>https://avatars2.githubusercontent.com/u/5713248?v=3&s=200</Icon>
+  <Icon>https://raw.githubusercontent.com/pootzko/InfluxData.Net/master/nuget-icon.png</Icon>
   <ExtraParams></ExtraParams>
 </Containers>
