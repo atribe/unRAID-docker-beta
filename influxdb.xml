@@ -10,6 +10,7 @@
     [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]
     [b]Container Volumes:[/b][br]
     [b]/var/lib/influxdb[/b] Persistent data storage location[br]
+    [br]
     [b]Container Ports:[/b][br]
     [b]8083[/b] Web admin interface[br]
     [b]8086[/b] HTTP API port[br]
