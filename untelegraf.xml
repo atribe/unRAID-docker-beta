@@ -1,11 +1,9 @@
-
-
 <?xml version="1.0" encoding="utf-8"?>
 <Container>
+  <Name>telegraf</Name>
   <Beta>True</Beta>
   <Category>Tools:</Category>
   <Date>2016-08-30</Date>
-  <Name>telegraf</Name>
   <Description>
     Telegraf gathers metrics from your system and sends them to an InfluxDB server for storage. From InfluxDB you would typically use something like Grafana to plot the data.[br][br]
     [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]
