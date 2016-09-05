@@ -1,3 +1,5 @@
+
+
 <?xml version="1.0" encoding="utf-8"?>
 <Containers>
   <Beta>True</Beta>
@@ -21,10 +23,38 @@
   <Repository>appcelerator/telegraf</Repository>
   <BindTime>true</BindTime>
   <Privileged>true</Privileged>
+  <Environment>
+    <Variable>
+      <Name>HOST_MOUNT_PREFIX</Name>
+      <Value>/rootfs</Value>
+    </Variable>
+    <Variable>
+      <Name>HOST_ETC</Name>
+      <Value>/rootfs/etc</Value>
+    </Variable>
+    <Variable>
+      <Name>HOST_PROC</Name>
+      <Value>/rootfs/proc</Value>
+    </Variable>
+    <Variable>
+      <Name>HOST_SYS</Name>
+      <Value>/rootfs/sys</Value>
+    </Variable>
+    <Variable>
+      <Name>INFLUXDB_URL</Name>
+      <Value>http://10.13.14.200:8086</Value>
+    </Variable>
+  </Environment>
   <Networking>
     <Mode>host</Mode>
+    <Publish/>
   </Networking>
   <Data>
+    <Volume>
+      <HostDir>/var/run/docker.sock</HostDir>
+      <ContainerDir>/var/run/docker.sock</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
     <Volume>
       <HostDir>/proc</HostDir>
       <ContainerDir>/rootfs/proc</ContainerDir>
@@ -46,34 +76,14 @@
       <Mode>ro</Mode>
     </Volume>
     <Volume>
-      <HostDir>/var/run/docker.sock</HostDir>
-      <ContainerDir>/var/run/docker.sock</ContainerDir>
+      <HostDir>/var/run/utmp</HostDir>
+      <ContainerDir>/var/run/utmp</ContainerDir>
       <Mode>ro</Mode>
     </Volume>
   </Data>
-  <Environment>
-    <Variable>
-      <Name>HOST_PROC</Name>
-      <Value>/rootfs/proc</Value>
-    </Variable>
-    <Variable>
-      <Name>HOST_SYS</Name>
-      <Value>/rootfs/sys</Value>
-    </Variable>
-    <Variable>
-      <Name>HOST_ETC</Name>
-      <Value>/rootfs/etc</Value>
-    </Variable>
-    <Variable>
-      <Name>HOST_MOUNT_PREFIX</Name>
-      <Value>/rootfs</Value>
-    </Variable>
-    <Variable>
-      <Name>INFLUXDB_URL</Name>
-      <Value>http://10.13.14.200:8086</Value>
-    </Variable>
-  </Environment>
+  <Version></Version>
+  <WebUI></WebUI>
   <Banner></Banner>
-  <Icon>telegraf.png</Icon>
+  <Icon></Icon>
   <ExtraParams></ExtraParams>
-</Containers>
+</Container>
