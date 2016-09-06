@@ -18,14 +18,14 @@
     [b]/rootfs/sys[/b] Read Only. To be mapped to the sys of the host file system. This is so the disk usage reported will be that of the host system.[br]
     [br]
     [b]Environment Variables:[/b][br]
-    [b]HOST_MOUNT_PREFIX[/b] Name of container volume mapping of the root file system.
-    [b]HOST_ETC[/b] Name of the etc volume mapping of the root file system.
-    [b]HOST_PROC[/b] Name of the proc volume mapping of the root file system.
-    [b]HOST_SYS[/b] Name of the sys volume mapping of the root file sytem.
-    [b]INFLUXDB_URL[/b] The url of the influxdb api, example: http://192.168.1.10:8086
+    [b]HOST_MOUNT_PREFIX[/b] Name of container volume mapping of the root file system.[br]
+    [b]HOST_ETC[/b] Name of the etc volume mapping of the root file system.[br]
+    [b]HOST_PROC[/b] Name of the proc volume mapping of the root file system.[br]
+    [b]HOST_SYS[/b] Name of the sys volume mapping of the root file sytem.[br]
+    [b]INFLUXDB_URL[/b] The url of the influxdb api, example: http://192.168.1.10:8086[br]
     [b][u][span style='color: #E80000;']CLICK ADVANCED VIEW AND SET THE ENVIRONMENT VARIABLES[/span][/u][/b][br]
     [br]
-    [b]More environtment variables are available and covered on the docker hub page: https://hub.docker.com/r/appcelerator/telegraf/.[/b]
+    [b][u][span style='color: #E80000;']More environtment variables are available and covered on the docker hub page: https://hub.docker.com/r/appcelerator/telegraf/.[/span][/u][/b]
   </Description>
   <Overview>
     Telegraf sends metrics to InfluxDB. Telegraf can collect metrics about the host (in this case unRAID) and about other docker containers.
