@@ -98,6 +98,6 @@
   <Version></Version>
   <WebUI></WebUI>
   <Banner></Banner>
-  <Icon>Telegraf.png</Icon>
+  <Icon></Icon>
   <ExtraParams></ExtraParams>
 </Container>
