@@ -4,11 +4,25 @@
 <Category>Tools:</Category>
   <Name>telegraf</Name>
   <Description>
-	  Telegraf gathers metrics from your system and sends them to an InfluxDB server for storage. From InfluxDB you would typically use something like Grafana to plot the data.[br][br]
-    [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]
-    [b]/var/run/docker.sock[/b] Location of your docker socket.[br]
+    Telegraf gathers metrics from your system and sends them to an InfluxDB server for storage. From InfluxDB you would typically use something like Grafana to plot the data.[br]
+    Both Grafana and Influxdb are available through Community Apps[br]
+    [b]This version of telegraf requires you to manually place a config file at /mnt/user/appdata/telegraf/telegraf.conf[/b][br]
+    The default telegraf.conf file can be downloaded at https://github.com/influxdata/telegraf/blob/master/etc/telegraf.conf. If you would prefer not to use a config file you can search for untelegraf in community apps for a version that only uses environment variables.[br]
     [br]
-    [b]docker run -t -v /var/run/docker.sock:/var/run/docker.sock:ro -v /proc:/rootfs/proc:ro -v /etc:/rootfs/etc:ro -v /sys:/rootfs/sys:ro -v /:/rootfs:ro -v /mnt/user/appdata/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf -e HOST_MOUNT_PREFIX=/rootfs -e HOST_ETC=/rootfs/etc -e HOST_PROC=/rootfs/proc -e HOST_SYS=/rootfs/sys --net="bridge" --name="telegraf" --privileged=true telegraf[/b]
+    [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]
+    [b]Container Volumes:[/b][br]
+    [b]/var/run/docker.sock[/b] Read Only. Location of your docker socket.[br]
+    [b]/var/run/utmp[/b] Read Only. Location of your utmp file.[br]
+    [b]/rootfs[/b] Read Only. To be mapped to the root of the host file system. This is so the disk usage reported will be that of the host system.[br]
+    [b]/rootfs/etc[/b] Read Only. To be mapped to the etc of the host file system. This is so the disk usage reported will be that of the host system.[br]
+    [b]/rootfs/proc[/b] Read Only. To be mapped to the proc of the host file system. This is so the disk usage reported will be that of the host system.[br]
+    [b]/rootfs/sys[/b] Read Only. To be mapped to the sys of the host file system. This is so the disk usage reported will be that of the host system.[br]
+    [br]
+    [b]Environment Variables:[/b][br]
+    [b]HOST_MOUNT_PREFIX[/b] Name of container volume mapping of the root file system.[br]
+    [b]HOST_ETC[/b] Name of the etc volume mapping of the root file system.[br]
+    [b]HOST_PROC[/b] Name of the proc volume mapping of the root file system.[br]
+    [b]HOST_SYS[/b] Name of the sys volume mapping of the root file sytem.[br]
   </Description>
   <Overview>
 	   Telegraf sends metrics to InfluxDB. Telegraf can collect metrics about the host (in this case unRAID) and about other docker containers.
@@ -17,7 +31,7 @@
   <Support>https://lime-technology.com/forum/index.php?topic=51498.0</Support>
   <Registry>https://hub.docker.com/_/telegraf/</Registry>
   <GitHub>https://github.com/influxdata/telegraf</GitHub>
-  <Repository>telegraf</Repository>
+  <Repository>telegraf:1.0-alpine</Repository>
   <BindTime>true</BindTime>
   <Privileged>true</Privileged>
   <Networking>
@@ -45,7 +59,6 @@
     <Volume>
       <HostDir>/mnt/user/appdata/telegraf/telegraf.conf</HostDir>
       <ContainerDir>/etc/telegraf/telegraf.conf</ContainerDir>
-      <Mode>ro</Mode>
     </Volume>
     <Volume>
       <HostDir>/proc</HostDir>
@@ -70,6 +83,11 @@
     <Volume>
       <HostDir>/var/run/docker.sock</HostDir>
       <ContainerDir>/var/run/docker.sock</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/var/run/utmp</HostDir>
+      <ContainerDir>/var/run/utmp</ContainerDir>
       <Mode>ro</Mode>
     </Volume>
   </Data>
